@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#097cfa">
+    <link rel="icon" href="img/favicon.png">
+    <title>Guess The Number</title>
+</head>
+<body>
+
+    <section class="main-page">
+        <header>
+            <div class="logo"> <img src="img/gtn-logo.svg" alt=""> </div>
+            <div class="pannel">
+                <div>Trials Left <span class="current-trials-left">2</span></div> 
+                <div>Hints <span class="toggle-button on"> <span class="slider-circle on2"></span> </span></div> 
+                <div>Level <span class="level"></span></div> 
+            </div>
+        </header>
+
+        <div class="menu-button">
+            <div class="menu-bars">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+
+        <nav>
+            <div class="close-button">
+                <div class="close-bars">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+            </div>
+
+            <ul class="nav-list">
+                <li><button class="restart">Restart</button></li>
+                <li><button class="rules-button">Rules</button></li>
+                <li><button class="select-level">Select Level</button></li>
+                <li><button class="credits-button">Credits</button></li>
+            </ul>
+        </nav>
+
+        <main>
+            <div class="number-card">
+                <img src="img/card.png" alt="">
+            </div>
+            <div class="input-field">
+                <input class="input-number" type="number"  />
+                <button class="guess">Guess</button>
+            </div>
+
+            <p class="message-log"></p>
+        </main>
+    </section>
+
+    <section class="welcome-page">
+        <h2>Welcome To Guess The Number</h2>
+        <h3>Rules</h3>
+        <p>
+            <ol>
+                <li>The game will generate a random number</li>
+                <li>You will have a limited number of trials to guess the correct number</li>
+            </ol>
+            It's that simple.
+        </p>
+
+        <div class="difficulty">
+            <h4>Select Difficulty</h4>
+            <select>
+                <option value="1">Level 1 (1-10)</option>
+                <option value="2">Level 2 (1-100)</option>
+                <option value="3">Level 3 (1-1000)</option>
+            </select>
+        </div>
+
+        <button class="start">Start</button>
+    </section>
+
+    <section class="rules">
+        <div class="close-button">
+            <div class="close-bars">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+        <h2>Rules</h2>
+        <p>
+            <ol>
+                <li>The game will generate a random number</li>
+                <li>You will have a limited number of trials to guess the correct number</li>
+            </ol>
+            It's that simple.
+        </p>
+    </section>
+
+    <section class="credits">
+        <div class="close-button">
+            <div class="close-bars">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+        <div>
+        <h2>Credits</h2>
+        <div class="credit-list">
+            <div class="credit">
+                <h3 class="credit-title">Developer</h3>
+                <h4 class="credit-name">Ridwan Alawode</h4>
+            </div>
+            <div class="credit">
+                <h3 class="credit-title">UI/UX Designer</h3>
+                <h4 class="credit-name">Ridwan Alawode</h4>
+            </div>
+        </div> 
+        </div>
+    </section>
+
+    <div class="confirmation">
+        <div class="close-button">
+            <div class="close-bars">
+                <div class="bar bar1"></div>
+                <div class="bar bar2"></div>
+                <div class="bar bar3"></div>
+            </div>
+        </div>
+
+        <div class="confirmation-container">
+        <p>Are you sure you want to <span class="action"></span></p>
+        <div class="next-move">
+            <button class="yes">Yes</button>
+            <button class="no">No</button>
+        </div>
+        </div>
+    </div>
+    
+    <div class="game-results">
+        <div>
+        <h3>Results</h3>
+        <div class="hidden-number">7</div>
+        <h2 class="remark">You Win</h2>
+        <p>in <span class="trials-left">4</span> trial(s)</p>
+        <div class="next-move">
+            <button class="play-again">Play Again</button>
+            <button class="select-difficulty">Select Difficulty</button>
+        </div>
+        </div>
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
