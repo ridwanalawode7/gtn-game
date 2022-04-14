@@ -29,7 +29,7 @@ body {
 .main-page {
     height: 100vh;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     background-color: rgba(26, 26, 26, 0.97);
     position: relative;
 }
@@ -39,7 +39,7 @@ header {
 }
 
 .logo {
-    width: 100px;
+    width: 70px;
     margin: 20px 0 0 20px;
 }
 
@@ -141,7 +141,7 @@ nav ul li {
 }
 
 main {
-    margin: 50px 0 0 0;
+    margin: 40px 0 0 0;
 }
 
 .number-card {
@@ -156,7 +156,7 @@ main {
 }
 
 .input-field {
-    margin-top: 70px;
+    margin-top: 40px;
     text-align: center;
 }
 
@@ -428,6 +428,14 @@ button:active {
     border-radius: 6.5px;
     background-color: grey;
     transition: background-color 200ms, transform 200ms;
+}
+
+.current-trials-left{
+    color: var(--text-color2);
+}
+
+.level {
+    color: var(--text-color2);
 }
 
 .on {
