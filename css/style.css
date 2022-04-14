@@ -7,6 +7,13 @@
     --text-color2: #29d0fcff;
 }
 
+@font-face {
+  font-family: 'Silkscreen';
+  src: url("slkscr-webfont.woff") format("woff"),
+       url("slkscr-webfont.ttf") format("truetype"),
+       url("slkscr-webfont.eot") format("embedded-opentype");
+}
+
 body {
     margin: 0;
     padding: 0;
