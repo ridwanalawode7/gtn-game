@@ -17,7 +17,7 @@
 body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     color: #097cfaff;
     background-image: url(../img/background.png);
     background-size: cover;
