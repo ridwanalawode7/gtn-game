@@ -1,6 +1,6 @@
 //DEFINE VARIABLES
 let NUMBER_OF_TRIALS
-let LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT, MAXIMUM_NUMBER;
+let LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT, MAXIMUM_NUMBER, FONT_SIZE;
 let message = ''
 let hint = true;
 let action;
@@ -46,7 +46,6 @@ menuButton.addEventListener('click', function () {
 })
 
 for (const button of closeButton) {
-    console.log(button)
      button.addEventListener('click', function (e) {
             this.parentNode.classList.remove('show');
         })   
@@ -65,8 +64,7 @@ creditsButton.addEventListener('click', function () {
 startButton.addEventListener('click', function () {
     welcomePage.classList.add('welcome-page-hide');
     initiateValues();
-    console.log([LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT]);
-    document.querySelector('.hidden-number').textContent = SPECIAL_NUMBER;
+    document.querySelector('.hidden-number').style.fontSize = `${FONT_SIZE}px`
     document.querySelector('.level').textContent = LEVEL;
     document.querySelector('.current-trials-left').textContent = NUMBER_OF_TRIALS_LEFT;
     document.querySelector('.message-log').innerHTML = message;
@@ -84,15 +82,14 @@ guessButton.addEventListener('click', function () {
         NUMBER_OF_TRIALS_LEFT--;
         document.querySelector('.current-trials-left').textContent = NUMBER_OF_TRIALS_LEFT;
         if (input == SPECIAL_NUMBER) {
+            document.querySelector('.hidden-number').textContent = SPECIAL_NUMBER;
             displaySuccess();
-            console.log('You win');
         } else {
             if (NUMBER_OF_TRIALS_LEFT == 0) {
+                document.querySelector('.hidden-number').textContent = SPECIAL_NUMBER;
                 displayGameFailure()
-                console.log('Game Over');
             } else {
                 message = `${message} <br/> Wrong, Try Again`
-                console.log('Wrong, Try Again');
                 if (hint) {
                     if (input > SPECIAL_NUMBER) {
                         message = `${message} <br/><br/> You went too high`;
@@ -117,7 +114,6 @@ restartButton.addEventListener('click', function () {
     display('.confirmation', true);
     action = {key:'restart', msg:'restart'}
     document.querySelector('.action').textContent = action.msg;
-    console.log(action);
 })
 
 selectLevel.addEventListener('click', function () {
@@ -125,7 +121,6 @@ selectLevel.addEventListener('click', function () {
     display('.confirmation', true);
     action = {key:'exit', msg:'exit'}
     document.querySelector('.action').textContent = action.msg;
-    console.log(action); 
 })
 
 yesButton.addEventListener('click', function () {
@@ -133,22 +128,17 @@ yesButton.addEventListener('click', function () {
         updateValues();
         display('.confirmation', false);
         document.querySelector('.current-trials-left').textContent = NUMBER_OF_TRIALS_LEFT;
-        console.log([LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT]);
-        console.log(action.key);
         document.querySelector('.message-log').innerHTML = message;
     } else if (action.key == 'exit') {
         deleteValues();
         display('.confirmation', false);
         welcomePage.classList.remove('welcome-page-hide');
-        console.log(action.key);
-        console.log([LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT]);
     }
 })
 
 playAgainButton.addEventListener('click', function () {
     updateValues();
     display('.game-results', false);
-    console.log([LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT]);
     document.querySelector('.current-trials-left').textContent = NUMBER_OF_TRIALS_LEFT;
     document.querySelector('.message-log').innerHTML = message;
 })
@@ -157,7 +147,6 @@ selectDifficultyButton.addEventListener('click', function () {
      deleteValues();
      display('.game-results', false);
     welcomePage.classList.remove('welcome-page-hide');
-    console.log([LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT]);
 })
 
 noButton.addEventListener('click', function () {
@@ -172,34 +161,39 @@ function getRandomNoAndTrials() {
     let randomNumber
     let trialNo
     let max
+    let fontSize
     switch (LEVEL) {
         case 1:
             randomNumber = Math.ceil(Math.random() * 10);
             trialNo = 5;
             max = 10;
+            fontSize = 70;
             break;
         
         case 2:
             randomNumber = Math.ceil(Math.random() * 100);
             trialNo = 10;
             max = 100;
+            fontSize = 50;
             break;
         
         case 3:
             randomNumber = Math.ceil(Math.random() * 1000);
             trialNo = 15;
             max = 1000;
+            fontSize = 35;
         default:
             break;
     }
 
-    return [randomNumber, trialNo, max]
+    return [randomNumber, trialNo, max, fontSize]
 }
 
 
 function initiateValues() {
+    document.querySelector('.hidden-number').textContent = '';
     LEVEL = getDifficulty();
-    [SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT, MAXIMUM_NUMBER] = getRandomNoAndTrials();
+    [SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT, MAXIMUM_NUMBER, FONT_SIZE] = getRandomNoAndTrials();
     NUMBER_OF_TRIALS = NUMBER_OF_TRIALS_LEFT;
 }
 
@@ -217,12 +211,16 @@ function displayGameFailure() {
 }
 
 function updateValues() {
+    document.querySelector('.hidden-number').textContent = '';
     SPECIAL_NUMBER = getRandomNoAndTrials()[0];
     NUMBER_OF_TRIALS_LEFT = NUMBER_OF_TRIALS;
+    FONT_SIZE = getRandomNoAndTrials[3];
  }
 function deleteValues() {
+    document.querySelector('.hidden-number').textContent = '';
     SPECIAL_NUMBER = null;
     NUMBER_OF_TRIALS = null;
     NUMBER_OF_TRIALS_LEFT = null;
     LEVEL = null;
+    FONT_SIZE = null;
  }

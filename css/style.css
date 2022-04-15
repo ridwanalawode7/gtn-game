@@ -378,7 +378,6 @@ button:active {
 .hidden-number {
     height: 120px;
     width: 88.172px;
-    font-size: 50px;
     color: var(--text-color2);
     display: grid;
     place-items: center;
