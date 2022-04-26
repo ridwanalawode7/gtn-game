@@ -4,6 +4,7 @@ let LEVEL, SPECIAL_NUMBER, NUMBER_OF_TRIALS_LEFT, MAXIMUM_NUMBER, FONT_SIZE;
 let message = ''
 let hint = true;
 let action;
+console.log(document.querySelector('.test-text'));
 
 //SELECTED ELEMENTS
 let startButton = document.querySelector('.start');
@@ -12,13 +13,16 @@ let closeButton = document.querySelectorAll('.close-button');
 let rulesButton = document.querySelector('.rules-button');
 let creditsButton = document.querySelector('.credits-button');
 let welcomePage = document.querySelector('.welcome-page');
-let guessButton = document.querySelector('.guess');
+let guessButton = document.querySelector('.btn-guess');
 let restartButton = document.querySelector('.restart');
 let selectLevel = document.querySelector('.select-level');
 let yesButton = document.querySelector('.yes');
 let noButton = document.querySelector('.no');
 let playAgainButton = document.querySelector('.play-again');
 let selectDifficultyButton = document.querySelector('.select-difficulty'); 
+let keys = document.querySelector('.keys');
+let delButton = document.querySelector('.btn-del');
+let clearButton;
 
 document.querySelector('.toggle-button').addEventListener('click', function () {
     if (hint == true) {
@@ -27,6 +31,27 @@ document.querySelector('.toggle-button').addEventListener('click', function () {
     } else if (hint == false) {
         document.querySelector('.toggle-button').classList.add('on')
         hint = true;
+    }
+})
+
+keys.addEventListener('click', function (e) {
+    
+    let clickedNumber = e.target.textContent;
+    if (!isNaN(clickedNumber)) {
+        document.querySelector('.input-number-field').textContent += clickedNumber;
+        document.querySelector('.input-field div').style.border = 'solid 5px #808080';
+    }
+})
+
+document.querySelector('.input-field div').addEventListener('click', function () {
+    document.querySelector('.input-field div').style.border = 'solid 5px #808080';
+})
+
+delButton.addEventListener('click', function () {
+    let currrentInput = document.querySelector('.input-number-field').textContent;
+    if (currrentInput) {
+        let newInput = currrentInput.substring(0, currrentInput.length - 1);
+        document.querySelector('.input-number-field').textContent = newInput;
     }
 })
 
@@ -71,7 +96,7 @@ startButton.addEventListener('click', function () {
 })
 
 guessButton.addEventListener('click', function () {
-    let input = document.querySelector('.input-field input').value;
+    let input = document.querySelector('.input-number-field').textContent;
     if (input == '') {
         message = message + 'Please enter a number'
     } else if (isNaN(input)) {
@@ -92,9 +117,9 @@ guessButton.addEventListener('click', function () {
                 message = `${message} <br/> Wrong, Try Again`
                 if (hint) {
                     if (input > SPECIAL_NUMBER) {
-                        message = `${message} <br/><br/> You went too high`;
+                        message = `${message} <br/><br/> You went too <strong> high </strong>`;
                     } else {
-                        message = `${message} <br/><br/> You went too low`;
+                        message = `${message} <br/><br/> You went too <strong> low </strong>`;
                     }
                 }
             }
@@ -103,10 +128,11 @@ guessButton.addEventListener('click', function () {
 
     if (message) {
         document.querySelector('.message-log').innerHTML = message;
+        document.querySelector('.input-field div').style.border = 'solid 5px #ff6464';
         message = '' //clears message log
     }
 
-    document.querySelector('.input-field input').value = null;
+    document.querySelector('.input-number-field').textContent = null;
 })
 
 restartButton.addEventListener('click', function () {
@@ -200,7 +226,7 @@ function initiateValues() {
 function displaySuccess() {
     document.querySelector('.remark').textContent = 'You Win';
     let trialsUsed = NUMBER_OF_TRIALS - NUMBER_OF_TRIALS_LEFT;
-    document.querySelector('.trials-left').textContent = trialsUsed;
+    document.querySelector('.game-results p').innerHTML = `in ${trialsUsed} trial(s)`;
     display('.game-results', true);
 }
 

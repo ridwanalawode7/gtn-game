@@ -160,8 +160,8 @@ main {
     text-align: center;
 }
 
-.input-field input {
-    height: 50px;
+.input-field div {
+    padding: 10px;
     width: 200px;
     background-color: transparent;
     border: solid 5px #808080;
@@ -370,10 +370,7 @@ button:active {
     color: var(--text-color)
 }
 
-.next-move button {
-    font-size: 18px;
-    flex-basis: 0.4fr;
-}
+
 
 .hidden-number {
     height: 120px;
@@ -388,7 +385,7 @@ button:active {
 }
 
 .confirmation-container {
-    width: 100%;
+    width: 80%;
 }
 
 .confirmation-container > p {
@@ -405,9 +402,16 @@ button:active {
     width: 100%;
 }
 
+.next-move button {
+    font-size: 18px;
+    flex-basis: 40%;
+}
+
 .message-log {
     font-size: 14px;
     text-align: center;
+    width: 70%;
+    margin: 1em auto 0 auto;
 }
 
 .toggle-button {
@@ -445,6 +449,59 @@ button:active {
     transform: translateX(15px);
     background-color: var(--text-color2);
 }
+
+/* KEYBOARD STYLES */
+
+.keyboard {
+    width: 100%;
+    display: grid;
+    margin: 0 auto 0 auto;
+    position: fixed;
+    bottom: 10px;
+    z-index: 1;
+    right: auto;
+    left: auto;
+    place-items: center;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+}
+
+.keys button{
+    width: 80%;
+    /* align-items: center; */
+}
+
+.btn-guess {
+    grid-column-start: 2;
+}
+
+.cursor-bar {
+    height: 12px;
+    width: 2px;
+    background-color: #808080;
+    display: inline-block;
+    animation: cursor-blink 1s steps(2) infinite;
+}
+
+@keyframes cursor-blink {
+    0% {
+        opacity: 0%;
+    }
+
+    50% {
+        opacity: 0%;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
+
+
 
 .show {
     right: 0;

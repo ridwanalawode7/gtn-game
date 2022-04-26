@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0P4BXCZ8F7"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0P4BXCZ8F7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-0P4BXCZ8F7');
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,16 +56,34 @@
         </nav>
 
         <main>
-            <div class="number-card">
+            <!-- <div class="number-card">
                 <img src="img/card.png" alt="">
-            </div>
+            </div> -->
             <div class="input-field">
-                <input class="input-number" type="number"  />
-                <button class="guess">Guess</button>
+                <div class="input-number"> <span class="input-number-field"></span> </span><span class="cursor-bar"></span></div>
+                <!-- <button class="guess">Guess</button> -->
             </div>
 
             <p class="message-log"></p>
         </main>
+
+        <div class="keyboard">
+            <div class="keys">
+                <button class="btn-1">1</button>
+                <button class="btn-2">2</button>
+                <button class="btn-3">3</button>
+                <button class="btn-4">4</button>
+                <button class="btn-5">5</button>
+                <button class="btn-6">6</button>
+                <button class="btn-7">7</button>
+                <button class="btn-8">8</button>
+                <button class="btn-9">9</button>
+                <button class="btn-clr"> <strong>CLR</strong></button>
+                <button class="btn-2">0</button>
+                <button class="btn-del"><strong>DEL</strong></button>
+                <button class="btn-guess">Guess</button>
+            </div>
+        </div>
     </section>
 
     <section class="welcome-page">
@@ -142,7 +160,7 @@
         </div>
 
         <div class="confirmation-container">
-        <p>Are you sure you want to <span class="action"></span></p>
+        <p>Are you sure you want to <span class="action"></span>? Current game data will be lost.</p>
         <div class="next-move">
             <button class="yes">Yes</button>
             <button class="no">No</button>
@@ -155,7 +173,7 @@
         <h3>Results</h3>
         <div class="hidden-number">7</div>
         <h2 class="remark">You Win</h2>
-        <p>in <span class="trials-left">4</span> trial(s)</p>
+        <p>in <span class="trials-left"></span> trial(s)</p>
         <div class="next-move">
             <button class="play-again">Play Again</button>
             <button class="select-difficulty">Select Difficulty</button>
