@@ -6,6 +6,8 @@ let hint = true;
 let action;
 console.log(document.querySelector('.test-text'));
 
+
+
 //SELECTED ELEMENTS
 let startButton = document.querySelector('.start');
 let menuButton = document.querySelector('.menu-button');
@@ -22,7 +24,7 @@ let playAgainButton = document.querySelector('.play-again');
 let selectDifficultyButton = document.querySelector('.select-difficulty'); 
 let keys = document.querySelector('.keys');
 let delButton = document.querySelector('.btn-del');
-let clearButton;
+let clearButton = document.querySelector('.btn-clr');
 
 document.querySelector('.toggle-button').addEventListener('click', function () {
     if (hint == true) {
@@ -51,6 +53,14 @@ delButton.addEventListener('click', function () {
     let currrentInput = document.querySelector('.input-number-field').textContent;
     if (currrentInput) {
         let newInput = currrentInput.substring(0, currrentInput.length - 1);
+        document.querySelector('.input-number-field').textContent = newInput;
+    }
+})
+
+clearButton.addEventListener('click', function () {
+    let currrentInput = document.querySelector('.input-number-field').textContent;
+    if (currrentInput) {
+        let newInput = null;
         document.querySelector('.input-number-field').textContent = newInput;
     }
 })
@@ -90,7 +100,7 @@ startButton.addEventListener('click', function () {
     welcomePage.classList.add('welcome-page-hide');
     initiateValues();
     document.querySelector('.hidden-number').style.fontSize = `${FONT_SIZE}px`
-    document.querySelector('.level').textContent = LEVEL;
+    document.querySelector('.level').textContent = `${LEVEL} (1 - ${MAXIMUM_NUMBER})`;
     document.querySelector('.current-trials-left').textContent = NUMBER_OF_TRIALS_LEFT;
     document.querySelector('.message-log').innerHTML = message;
 })
