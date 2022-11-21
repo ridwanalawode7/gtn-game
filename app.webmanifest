@@ -1,7 +1,7 @@
 {
     "name": "Guess The Number - By Ridwan Alawode",
     "short_name": "GTN",
-    "start_url": "./",
+   "start_url": "./?utm_source=pwa",
     "orientation": "any",
     "theme_color": "#097cfa",
     "scope": "./",
