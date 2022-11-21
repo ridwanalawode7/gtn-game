@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0P4BXCZ8F7"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-0P4BXCZ8F7"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-0P4BXCZ8F7');
-    </script>
+    </script> -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="sw-register.js"></script>
+    <link rel="manifest" href="app.webmanifest">
     <meta name="theme-color" content="#097cfa">
-    <link rel="icon" href="img/favicon.png">
-    <title>Guess The Number</title>
+    <link rel="icon" href="img/favicon.svg">
+    <title>Guess The Number | By Ridwan Alawode</title>
 </head>
 <body>
 
@@ -24,12 +26,13 @@
         <img src="img/gtn-logo.svg" alt="Guess The Number Logo Graphic">
     </div>
 
-    <section class="main-page">
+    <div class="page-container">
+    <section class="modem main-page">
         <header>
             <div class="logo"> <img src="img/gtn-logo.svg" alt="Guess The Number Logo Graphic"> </div>
             <div class="pannel">
                 <div>Trials Left <span class="current-trials-left">2</span></div> 
-                <div>Hints <span class="toggle-button on"> <span class="slider-circle on2"></span> </span></div> 
+                <div>Hints <span class="first-tab toggle-button on" tabindex="3"> <span class="slider-circle on2"></span> </span></div> 
                 <div>Level <span class="level"></span></div> 
             </div>
         </header>
@@ -43,7 +46,7 @@
         </div>
 
         <nav>
-            <div class="close-button">
+            <div class="close-button" aria-roledescription="Button" aria-label="Close Button" tabindex="0">
                 <div class="close-bars">
                     <div class="bar bar1"></div>
                     <div class="bar bar2"></div>
@@ -60,12 +63,12 @@
         </nav>
 
         <main>
-            <!-- <div class="number-card">
-                <img src="img/card.png" alt="">
-            </div> -->
+
             <div class="input-field">
-                <div class="input-number"> <span class="input-number-field"></span> </span><span class="cursor-bar"></span></div>
-                <!-- <button class="guess">Guess</button> -->
+                <form>
+                    <div class="input-number"> <input type="number" class="input-number-field" tabindex="1" name="input-number-field" aria-label="Input Number"></div>
+                    <button class="last-tab btn-guess guess">Guess</button>
+                </form>
             </div>
 
             <p class="message-log"></p>
@@ -85,12 +88,12 @@
                 <button class="btn-clr"> <strong>CLR</strong></button>
                 <button class="btn-2">0</button>
                 <button class="btn-del"><strong>DEL</strong></button>
-                <button class="btn-guess">Guess</button>
+                <button class="last-tab btn-guess">Guess</button>
             </div>
         </div>
     </section>
 
-    <section class="welcome-page">
+    <section class="modem welcome-page">
         <h2>Welcome To Guess The Number</h2>
         <h3>Rules</h3>
         <p>
@@ -103,18 +106,18 @@
 
         <div class="difficulty">
             <h4>Select Difficulty</h4>
-            <select>
+            <select class="first-tab">
                 <option value="1">Level 1 (1-10)</option>
                 <option value="2">Level 2 (1-100)</option>
                 <option value="3">Level 3 (1-1000)</option>
             </select>
         </div>
 
-        <button class="start">Start</button>
+        <button class="last-tab start">Start</button>
     </section>
 
-    <section class="rules">
-        <div class="close-button">
+    <section class="modem rules">
+        <div class="first-tab last-tab close-button" aria-roledescription="Button" aria-label="Close Button" tabindex="0">
             <div class="close-bars">
                 <div class="bar bar1"></div>
                 <div class="bar bar2"></div>
@@ -131,8 +134,8 @@
         </p>
     </section>
 
-    <section class="credits">
-        <div class="close-button">
+    <section class="modem credits">
+        <div class="first-tab last-tab close-button" aria-roledescription="Button" aria-label="Close Button" tabindex="0">
             <div class="close-bars">
                 <div class="bar bar1"></div>
                 <div class="bar bar2"></div>
@@ -154,8 +157,8 @@
         </div>
     </section>
 
-    <div class="confirmation">
-        <div class="close-button">
+    <div class="modem confirmation">
+        <div class="first-tab close-button" aria-roledescription="Button" aria-label="Close Button" tabindex="0">
             <div class="close-bars">
                 <div class="bar bar1"></div>
                 <div class="bar bar2"></div>
@@ -167,22 +170,23 @@
         <p>Are you sure you want to <span class="action"></span>? Current game data will be lost.</p>
         <div class="next-move">
             <button class="yes">Yes</button>
-            <button class="no">No</button>
+            <button class="last-tab no">No</button>
         </div>
         </div>
     </div>
     
-    <div class="game-results">
+    <div class="modem game-results">
         <div>
         <h3>Results</h3>
         <div class="hidden-number">7</div>
         <h2 class="remark">You Win</h2>
         <p>in <span class="trials-left"></span> trial(s)</p>
         <div class="next-move">
-            <button class="play-again">Play Again</button>
-            <button class="select-difficulty">Select Difficulty</button>
+            <button class="first-tab play-again">Play Again</button>
+            <button class="last-tab select-difficulty">Select Difficulty</button>
         </div>
         </div>
+    </div>
     </div>
     
     <script src="js/script.js"></script>
