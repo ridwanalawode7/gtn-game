@@ -2,8 +2,6 @@ const assets = [
   '/',
   '/css/style.css',
   '/js/script.js',
-  '/css/slkscr-webfont.eot',
-  '/css/slkscr-webfont.ttf',
   '/css/slkscr-webfont.woff',
   'sw-register.js',
 ];
