@@ -13,16 +13,24 @@ const assets = [
 // });
 
 // Service Worker Installation
-self.addEventListener("install", event => {
-    // install the assets of my PWA
-    event.waitUntil(
-        caches.open("assets").then(cache => {
-            return cache.addAll(assets);
-        })
-    );
-    // self.skipWaiting(); // activate the service worker immediately
+self.addEventListener('install', (event) => {
+  // install the assets of my PWA
+  event.waitUntil(
+    caches.open('assets').then((cache) => {
+      // cache.addAll(assets);
+      const stack = [];
+      assets.forEach((file) =>
+        stack.push(
+          cache
+            .add(file)
+            .catch((_) => console.error(`can't load ${file} to cache`)),
+        ),
+      );
+      return Promise.all(stack);
+    }),
+  );
+  // self.skipWaiting(); // activate the service worker immediately
 });
-
 
 // State while revalidate strategy
 self.addEventListener('fetch', (event) => {
